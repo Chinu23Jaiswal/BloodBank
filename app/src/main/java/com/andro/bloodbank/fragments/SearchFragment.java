@@ -1,6 +1,5 @@
 package com.andro.bloodbank.fragments;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -14,11 +13,9 @@ import com.andro.bloodbank.R;
  */
 public class SearchFragment extends Fragment {
 
-
     public SearchFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

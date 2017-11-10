@@ -35,8 +35,6 @@ import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -44,7 +42,6 @@ public class MainActivity extends AppCompatActivity
     private static final String TAG = "MAIN_ACTIVITY";
     private ProgressDialog progressDialog;
     private ArrayList<DonorProfile> donorProfiles;
-    private HashMap<String, Object> map;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +70,6 @@ public class MainActivity extends AppCompatActivity
         navigationView.getMenu().getItem(1).setChecked(true);
         onNavigationItemSelected(navigationView.getMenu().getItem(1));
 
-        map = new HashMap<>();
         donorProfiles = new ArrayList<>();
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);

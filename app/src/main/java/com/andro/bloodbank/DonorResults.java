@@ -1,8 +1,8 @@
 package com.andro.bloodbank;
 
 import android.arch.persistence.room.Room;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -24,8 +24,8 @@ public class DonorResults extends AppCompatActivity {
 
         donorProfiles = new ArrayList<>();
 
-        AppDatabase db = Room.databaseBuilder(getApplicationContext(),
-                AppDatabase.class, "profile").allowMainThreadQueries().build();
+        AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, "profile")
+                .allowMainThreadQueries().build();
 
         donorProfiles = db.profileDao().getAll();
 
