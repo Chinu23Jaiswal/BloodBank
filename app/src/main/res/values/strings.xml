@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">Blood Bank</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <array name="array_eligibility">
+        <item>All</item>
+        <item>Only Eligible Donors</item>
+    </array>
+
+    <array name="array_blood_group">
+        <item>All</item>
+        <item>A</item>
+        <item>B</item>
+        <item>O</item>
+        <item>AB</item>
+    </array>
+
+    <array name="array_rh_type">
+        <item>All</item>
+        <item>+</item>
+        <item>-</item>
+    </array>
+
+    <array name="array_age_group">
+        <item>All</item>
+        <item>18 - 30</item>
+        <item>31 - 40</item>
+        <item>41 - 50</item>
+        <item>51 - 60</item>
+    </array>
+
+    <array name="array_gender">
+        <item>All</item>
+        <item>Male</item>
+        <item>Female</item>
+        <item>TransGender</item>
+    </array>
+
+    <array name="array_donor_type">
+        <item>All</item>
+    </array>
+
+    <array name="array_area">
+        <item>All</item>
+    </array>
+
+    <array name="array_city">
+        <item>All</item>
+    </array>
+
+    <array name="array_motivated_by">
+        <item>All</item>
+    </array>
+
+</resources>

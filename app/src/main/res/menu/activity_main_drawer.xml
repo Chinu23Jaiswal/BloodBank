@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/dir_search"
+            android:icon="@drawable/ic_search_white_24dp"
+            android:title="Donor Directory Search" />
+        <item
+            android:id="@+id/dir_look_up"
+            android:icon="@drawable/ic_add_white_24dp"
+            android:title="Donor Directory Look Up" />
+    </group>
+</menu>
