@@ -3,8 +3,6 @@ package com.andro.bloodbank.database;
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.RoomDatabase;
 
-import com.andro.bloodbank.DonorProfile;
-
 /**
  * Created by androdev700 on 10/11/17.
  */

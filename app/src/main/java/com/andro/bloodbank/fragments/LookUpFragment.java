@@ -2,17 +2,18 @@ package com.andro.bloodbank.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 
-import com.andro.bloodbank.DonorResults;
 import com.andro.bloodbank.R;
+import com.andro.bloodbank.activities.DonorResults;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,8 +33,8 @@ public class LookUpFragment extends Fragment {
         getActivity().setTitle("Profile Directory Look Up");
         View v = inflater.inflate(R.layout.fragment_look_up, container, false);
 
-        Spinner sEligibility, sBloodGroup, sRhType, sAgeGroup, sGender, sDonorType, sArea, sCity, sMotivatedBy;
-        SpinnerAdapter aEligibility, aBloodGroup, aRhType, aAgeGroup, aGender, aDonorType, aArea, aCity, aMotivatedBy;
+        final Spinner sEligibility, sBloodGroup, sRhType, sAgeGroup, sGender, sDonorType, sArea, sCity, sMotivatedBy;
+        final SpinnerAdapter aEligibility, aBloodGroup, aRhType, aAgeGroup, aGender, aDonorType, aArea, aCity, aMotivatedBy;
 
         sEligibility = v.findViewById(R.id.spinner_eligibility);
         sBloodGroup = v.findViewById(R.id.spinner_blood_group);
@@ -74,13 +75,23 @@ public class LookUpFragment extends Fragment {
         sCity.setAdapter(aCity);
         sMotivatedBy.setAdapter(aMotivatedBy);
 
-        Button searchButton = v.findViewById(R.id.search_look_up);
-        searchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), DonorResults.class);
-                startActivity(intent);
-            }
+        FloatingActionButton fab = v.findViewById(R.id.search);
+        fab.setOnClickListener(view -> {
+            int posBloodGroup = sBloodGroup.getSelectedItemPosition();
+            Log.d(TAG, "Blood Group Selection " + posBloodGroup);
+            int posRhType = sRhType.getSelectedItemPosition();
+            Log.d(TAG, "RH Type Selection " + posRhType);
+            int posAge = sAgeGroup.getSelectedItemPosition();
+            Log.d(TAG, "Age Selection " + posAge);
+            int posGender = sGender.getSelectedItemPosition();
+            Log.d(TAG, "Gender Selection " + posGender);
+
+            Intent intent = new Intent(getActivity(), DonorResults.class);
+            intent.putExtra("blood_group", posBloodGroup);
+            intent.putExtra("rhtype", posRhType);
+            intent.putExtra("age", posAge);
+            intent.putExtra("gender", posGender);
+            startActivity(intent);
         });
         return v;
     }

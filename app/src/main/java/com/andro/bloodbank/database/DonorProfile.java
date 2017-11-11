@@ -1,4 +1,4 @@
-package com.andro.bloodbank;
+package com.andro.bloodbank.database;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
@@ -12,9 +12,7 @@ import java.io.Serializable;
  */
 
 @Entity
-public class DonorProfile implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+public class DonorProfile {
 
     @PrimaryKey
     @NonNull

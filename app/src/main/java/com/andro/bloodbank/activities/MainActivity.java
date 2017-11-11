@@ -1,4 +1,4 @@
-package com.andro.bloodbank;
+package com.andro.bloodbank.activities;
 
 import android.app.ProgressDialog;
 import android.arch.persistence.room.Room;
@@ -8,9 +8,7 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -21,10 +19,11 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
+import com.andro.bloodbank.R;
 import com.andro.bloodbank.database.AppDatabase;
+import com.andro.bloodbank.database.DonorProfile;
 import com.andro.bloodbank.fragments.LookUpFragment;
 import com.andro.bloodbank.fragments.SearchFragment;
 import com.google.firebase.database.DataSnapshot;
@@ -49,15 +48,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = findViewById(R.id.search);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Will create a new search", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
@@ -91,7 +81,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void prepDatabase() {
-        progressDialog.setMessage("Looking for Database Changes");
+        progressDialog.setMessage("Looking for Cloud Database Changes, Make sure you have a good internet connection");
         progressDialog.show();
         Log.d(TAG, "Preparing Database");
         if (checkConnection()) {
@@ -126,7 +116,7 @@ public class MainActivity extends AppCompatActivity
     private class PutData extends AsyncTask<Void, Void, Void> {
         @Override
         protected void onPreExecute() {
-            progressDialog.setMessage("Making Changes to Current Database");
+            progressDialog.setMessage("Making Changes to Local Database, This may take a moment");
             progressDialog.show();
             super.onPreExecute();
         }
