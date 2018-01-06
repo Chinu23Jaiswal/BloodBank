@@ -1,5 +1,6 @@
 package com.andro.bloodbank.activities;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.arch.persistence.room.Room;
 import android.content.Context;
@@ -39,8 +40,8 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String TAG = "MAIN_ACTIVITY";
-    private ProgressDialog progressDialog;
     private ArrayList<DonorProfile> donorProfiles;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +62,8 @@ public class MainActivity extends AppCompatActivity
         onNavigationItemSelected(navigationView.getMenu().getItem(1));
 
         donorProfiles = new ArrayList<>();
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setCancelable(false);
+        context = this;
+
         //First Run Check
         Boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
                 .getBoolean("isFirstRun", true);
@@ -81,6 +82,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void prepDatabase() {
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setCancelable(false);
         progressDialog.setMessage("Looking for Cloud Database Changes, Make sure you have a good internet connection");
         progressDialog.show();
         Log.d(TAG, "Preparing Database");
@@ -95,7 +98,7 @@ public class MainActivity extends AppCompatActivity
                     GenericTypeIndicator<ArrayList<DonorProfile>> t = new GenericTypeIndicator<ArrayList<DonorProfile>>() {};
                     donorProfiles = dataSnapshot.getValue(t);
                     progressDialog.dismiss();
-                    initDatabase();
+                    new PutData(context, donorProfiles).execute();
                 }
 
                 @Override
@@ -109,22 +112,30 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    private void initDatabase() {
-        new PutData().execute();
-    }
+    private static class PutData extends AsyncTask<Void, Void, Void> {
 
-    private class PutData extends AsyncTask<Void, Void, Void> {
+        private ProgressDialog progressDialog;
+        @SuppressLint("StaticFieldLeak")
+        private Context context;
+        private ArrayList<DonorProfile> donorProfiles;
+
+        PutData(Context context, ArrayList<DonorProfile> donorProfiles) {
+            this.context = context;
+            this.donorProfiles = donorProfiles;
+        }
+
         @Override
         protected void onPreExecute() {
+            progressDialog = new ProgressDialog(context);
+            progressDialog.setCancelable(false);
             progressDialog.setMessage("Making Changes to Local Database, This may take a moment");
             progressDialog.show();
             super.onPreExecute();
         }
 
         @Override
-        protected Void doInBackground(Void... voids) {
-            AppDatabase db = Room.databaseBuilder(getApplicationContext(),
-                    AppDatabase.class, "profile").build();
+        protected Void doInBackground(Void... aVoid) {
+            AppDatabase db = Room.databaseBuilder(context, AppDatabase.class, "profile").build();
             for (DonorProfile e : donorProfiles) {
                 db.profileDao().insertAll(e);
             }

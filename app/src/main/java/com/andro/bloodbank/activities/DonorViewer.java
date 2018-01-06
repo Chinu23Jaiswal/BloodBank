@@ -86,53 +86,101 @@ public class DonorViewer extends AppCompatActivity {
 
         if (donorProfile != null) {
             name.setText(String.format(name.getText().toString(), donorProfile.getName()));
+
             dob.setText(String.format(dob.getText().toString(), donorProfile.getDob()));
+
             age.setText(String.format(age.getText().toString(), donorProfile.getAge()));
+
             officepincode.setText(String.format(officepincode.getText().toString(), donorProfile.getOfficepincode()));
+
             education.setText(String.format(education.getText().toString(), donorProfile.getEducation()));
+
             occupation.setText(String.format(occupation.getText().toString(), donorProfile.getOccupation()));
+
             officeaddress.setText(String.format(officeaddress.getText().toString(), donorProfile.getOfficeaddress()));
+
             rhtype.setText(String.format(rhtype.getText().toString(), donorProfile.getRhtype()));
+
             resvillageortownorcity.setText(String.format(resvillageortownorcity.getText().toString(), donorProfile.getResvillageortownorcity()));
+
             nsdod_wb.setText(String.format(nsdod_wb.getText().toString(), donorProfile.getNsdod_wb()));
+
             resdoornoandstreetorroad.setText(String.format(resdoornoandstreetorroad.getText().toString(), donorProfile.getResdoornoandstreetorroad()));
+
             reg_centre.setText(String.format(reg_centre.getText().toString(), donorProfile.getReg_centre()));
+
             nsdod.setText(String.format(nsdod.getText().toString(), donorProfile.getNsdod()));
+
             donor_type.setText(String.format(donor_type.getText().toString(), donorProfile.getDonor_type()));
+
             nsdod_plasma.setText(String.format(nsdod_plasma.getText().toString(), donorProfile.getNsdod_plasma()));
+
             respincode.setText(String.format(respincode.getText().toString(), donorProfile.getRespincode()));
+
             will_wed_day.setText(String.format(will_wed_day.getText().toString(), donorProfile.getWill_wed_day()));
+
             resaddress.setText(String.format(resaddress.getText().toString(), donorProfile.getResaddress()));
+
             lastdod_platelet.setText(String.format(lastdod_platelet.getText().toString(), donorProfile.getLastdod_platelet()));
+
             will_term.setText(String.format(will_term.getText().toString(), donorProfile.getWill_term()));
+
             bloodgroup.setText(String.format(bloodgroup.getText().toString(), donorProfile.getBloodgroup()));
+
             willl_bday.setText(String.format(willl_bday.getText().toString(), donorProfile.getWilll_bday()));
+
             lastdod_plasma.setText(String.format(lastdod_plasma.getText().toString(), donorProfile.getLastdod_plasma()));
+
             restaluk.setText(String.format(restaluk.getText().toString(), donorProfile.getRestaluk()));
+            
             gender.setText(String.format(gender.getText().toString(), donorProfile.getGender()));
+
             resmobile.setText(String.format(resmobile.getText().toString(), donorProfile.getResmobile()));
+
             dor.setText(String.format(dor.getText().toString(), donorProfile.getDor()));
+
             officetaluk.setText(String.format(officetaluk.getText().toString(), donorProfile.getOfficetaluk()));
+
             resarea.setText(String.format(resarea.getText().toString(), donorProfile.getResarea()));
+
             nsdod_doubleredcells.setText(String.format(nsdod_doubleredcells.getText().toString(), donorProfile.getNsdod_doubleredcells()));
+
             officeemail.setText(String.format(officeemail.getText().toString(), donorProfile.getOfficeemail()));
+
             resbuildingname.setText(String.format(resbuildingname.getText().toString(), donorProfile.getResbuildingname()));
+
             lastdod_doubleredcells.setText(String.format(lastdod_doubleredcells.getText().toString(), donorProfile.getLastdod_doubleredcells()));
+
             motivated_by.setText(String.format(motivated_by.getText().toString(), donorProfile.getMotivated_by()));
+
             nsdod_platelet.setText(String.format(nsdod_platelet.getText().toString(), donorProfile.getNsdod_platelet()));
+
             nsdodaph.setText(String.format(nsdodaph.getText().toString(), donorProfile.getNsdodaph()));
+
             officedistrict.setText(String.format(officedistrict.getText().toString(), donorProfile.getOfficedistrict()));
+
             will_oth_day.setText(String.format(will_oth_day.getText().toString(), donorProfile.getWill_oth_day()));
+
             resdistrict.setText(String.format(resdistrict.getText().toString(), donorProfile.getResdistrict()));
+
             resemail.setText(String.format(resemail.getText().toString(), donorProfile.getResemail()));
+
             officevillageortownorcity.setText(String.format(officevillageortownorcity.getText().toString(), donorProfile.getOfficevillageortownorcity()));
+
             spousename.setText(String.format(spousename.getText().toString(), donorProfile.getSpousename()));
+
             officemobile.setText(String.format(officemobile.getText().toString(), donorProfile.getOfficemobile()));
+
             officedoornoandstreetorroad.setText(String.format(officedoornoandstreetorroad.getText().toString(), donorProfile.getOfficedoornoandstreetorroad()));
+
             lastdod_wb.setText(String.format(lastdod_wb.getText().toString(), donorProfile.getLastdod_wb()));
+
             officebuildingname.setText(String.format(officebuildingname.getText().toString(), donorProfile.getOfficebuildingname()));
+
             officephone.setText(String.format(officephone.getText().toString(), donorProfile.getOfficephone()));
+
             resphone.setText(String.format(resphone.getText().toString(), donorProfile.getResphone()));
+
             officearea.setText(String.format(officearea.getText().toString(), donorProfile.getOfficearea()));
         } else {
             Toast.makeText(this, "Couldn't get Donor", Toast.LENGTH_LONG).show();
