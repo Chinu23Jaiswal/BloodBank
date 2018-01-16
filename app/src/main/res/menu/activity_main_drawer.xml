@@ -11,4 +11,13 @@
             android:icon="@drawable/ic_add_white_24dp"
             android:title="Donor Directory Look Up" />
     </group>
+
+    <group
+        android:id="@+id/menu_bottom"
+        android:checkableBehavior="none">
+
+        <item
+            android:id="@+id/dir_logout"
+            android:title="Logout" />
+    </group>
 </menu>

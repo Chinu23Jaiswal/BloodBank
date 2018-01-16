@@ -8,7 +8,7 @@ import android.support.annotation.NonNull;
 import java.io.Serializable;
 
 /**
- * Created by androdev700 on 28/10/17.
+ * Created by andro on 28/10/17.
  */
 
 @Entity
