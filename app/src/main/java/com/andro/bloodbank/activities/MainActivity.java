@@ -27,7 +27,6 @@ import com.andro.bloodbank.R;
 import com.andro.bloodbank.database.AppDatabase;
 import com.andro.bloodbank.database.DonorProfile;
 import com.andro.bloodbank.fragments.LookUpFragment;
-import com.andro.bloodbank.fragments.SearchFragment;
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -66,8 +65,8 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.getMenu().getItem(1).setChecked(true);
-        onNavigationItemSelected(navigationView.getMenu().getItem(1));
+        navigationView.getMenu().getItem(0).setChecked(true);
+        onNavigationItemSelected(navigationView.getMenu().getItem(0));
 
         mFirebaseAuth = FirebaseAuth.getInstance();
         donorProfiles = new ArrayList<>();
@@ -146,11 +145,13 @@ public class MainActivity extends AppCompatActivity
         FragmentTransaction transaction;
 
         int id = item.getItemId();
+        /*
         if (id == R.id.dir_search) {
             frag = new SearchFragment();
             transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.main_frame, frag).commit();
-        } else if (id == R.id.dir_look_up) {
+        } else */
+        if (id == R.id.dir_look_up) {
             frag = new LookUpFragment();
             transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.main_frame, frag).commit();
